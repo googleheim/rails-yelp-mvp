@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+
+      <h2><%= @restaurant.name   %></h2>
+      <p>Address: <%= @restaurant.address %><br>
+      Phone: <%= @restaurant.phone_number %><br>
+      Category: <%=@restaurant.category %></p><br>
+      <h4>Reviews</h4>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <% @restaurant.reviews.each do |review| %>
+    <div class="col-6 col-lg-3 offset-lg-3">
+        <p><%= review.content %></p>
+    </div>
+    <div class="col-6 col-lg-3 offset-lg-3">
+        <p><%= review.rating %> Stars</p>
+    </div>
+      <% end %>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <%= link_to "Rate this restaurant", new_restaurant_review_path(@restaurant), class: "mt-2 ml-0.5 btn btn-primary" %>
+      <%= link_to "Back", restaurants_path, class: "mt-2 btn btn-primary" %>
+    </div>
+  </div>
+</div>
